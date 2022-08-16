@@ -72,11 +72,11 @@ Find this file by:
 $ ls
 ```
 
-You should see the `add_vec_cpu.<JOBID>` file in the files listed. To see what the file contains do: 
+You should see the `add_vec_cpu.<JOBID>` file in the files listed. To see what the file contains use vim: 
 ```
 vi add_vec_cpu.<JOBID>
 ```
 
 You can confirm that it gave the correct results by looking for `__SUCCESS__` in the output file. 
 
-To close a file you have opened with vi type `esc` then `:q`.
+To close a file you have opened with vim, type `esc` then `:q`.
