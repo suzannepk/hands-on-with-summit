@@ -65,5 +65,18 @@ Now that the job has been submitted, you can monitor its progress. Is it running
 $ jobstat -u USERNAME
 ```
 
-where `USERNAME` is your username. This will show you the state of your job to determine if it's running, eligible (waiting to run), or blocked. When you no longer see your job listed with this command, you can assume it has finished (or crashed). Once it has finished, you can see the output from the job in the file named `add_vec_cpu.JOBID`, where `JOBID` is the unique ID given to you job when you submitted it. You can confirm that it gave the correct results by looking for `__SUCCESS__` in the output file. 
+where `USERNAME` is your username. This will show you the state of your job to determine if it's running, eligible (waiting to run), or blocked. When you no longer see your job listed with this command, you can assume it has finished (or crashed). Once it has finished, you can see the output from the job in the file named `add_vec_cpu.<JOBID>`, where `<JOBID>` is the unique ID given to you job when you submitted it. 
+Find this file by: 
 
+```
+$ ls
+```
+
+You should see the `add_vec_cpu.<JOBID>` file in the files listed. To see what the file contains do: 
+```
+vi add_vec_cpu.<JOBID>
+```
+
+You can confirm that it gave the correct results by looking for `__SUCCESS__` in the output file. 
+
+To close a file you have opened with vi type `esc` then `:q`.
