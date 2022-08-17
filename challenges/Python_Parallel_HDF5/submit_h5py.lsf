@@ -13,6 +13,6 @@ module load gcc
 module load hdf5
 module load python
 
-source activate $HOME/.conda/envs/h5pympi-ascent
+source activate $HOME/.conda/envs/h5pympi-summit
 
 jsrun -n1 -r1 -a42 -c42 python3 hdf5_parallel.py

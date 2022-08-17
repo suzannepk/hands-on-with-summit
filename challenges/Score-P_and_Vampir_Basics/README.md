@@ -59,26 +59,26 @@ We will go over this more in the miniWeather example program later on.
 
 Let's try instrumenting Score-P in a Makefile! The Monte Carlo program was created as a demonstration of how MPI can be used to find the value of pi with the Monte Carlo method. For more information, see the [Monte Carlo Estimate PI](http://www.selkie.macalester.edu/csinparallel/modules/MPIProgramming/build/html/calculatePi/Pi.html) page. 
 
-First of all, you will need to work with the Wolf filesystem instead of your host directory. To do this, you can go to your scratch directory:
+First of all, you will need to work with the Alpine filesystem instead of your host directory. To do this, you can go to your scratch directory:
 
 ```
-$ cd /gpfs/wolf/<project>/scratch/<username>
+$ cd /gpfs/alpine/<project>/scratch/<username>
 ```
 
 Then you will need to copy over this Score-P challenge from your host directory:
 
 ```
-$ cp -r /ccsopen/home/<username>/hands-on-with-summit/challenges/Score-P_and_Vampir_Basics .
+$ cp -r /ccs/home/<username>/hands-on-with-summit/challenges/Score-P_and_Vampir_Basics .
 ```
 
 >NOTE: the dot at the end of the above command means your current directory.
 
-You should see the Score-P directory now when issuing the `ls` command. Now you are ready to work with Score-P on Ascent.
+You should see the Score-P directory now when issuing the `ls` command. Now you are ready to work with Score-P on Summit.
 
 Before instrumenting Score-P, make sure you are in the `monte_carlo` directory:
 
 ```
-$ cd /gpfs/wolf/<project>/scratch/<username>/Score-P_and_Vampir_Basics/monte_carlo
+$ cd /gpfs/alpine/<project>/scratch/<username>/Score-P_and_Vampir_Basics/monte_carlo
 ```
 
 You will need to load the following modules:
@@ -301,7 +301,7 @@ You can see that only `main` will be filtered out while the rest of the function
 Next, assign the path to the `main.filter` file to the `SCOREP_FILTERING_FILE` variable:
 
 ```
-$ export SCOREP_FILTERING_FILE=/gpfs/wolf/<project>/scratch/<username>/Score-P_and_Vampir_Basics/monte_carlo/<scorep directory>/main.filter
+$ export SCOREP_FILTERING_FILE=/gpfs/alpine/<project>/scratch/<username>/Score-P_and_Vampir_Basics/monte_carlo/<scorep directory>/main.filter
 ```
 
 ## Step 4: Tracing Run
@@ -345,14 +345,14 @@ We will take a closer look at these features when we launch Vampir.
 
 Now it's your turn!
 
-In order to load Vampir on Ascent, you must have X forwarding. This process differs between Mac and Windows users, so follow the appropriate directions for what you are working with.
+In order to load Vampir on Summit, you must have X forwarding. This process differs between Mac and Windows users, so follow the appropriate directions for what you are working with.
 
 **Mac Users**
 
-To log in with X forwarding, logout of Ascent, and then ssh back in with the -X flag:
+To log in with X forwarding, logout of Summit, and then ssh back in with the -X flag:
 
 ```
-$ ssh -X <username>@login1.ascent.olcf.ornl.gov
+$ ssh -X <username>@login1.summit.olcf.ornl.gov
 ```
 
 Another thing you will need to have is the XQuartz app. This can be accessed by going to ORNL Self Service in your launchpad (can also use search bar at the top to search for it). In ORNL Self Service, scroll down until you find XQuartz and click the Install button. 
@@ -365,7 +365,7 @@ Please go to the following links to set up Xming and Putty:
 
 [PuTTy Setup with SSH and X11](http://ocean.stanford.edu/courses/ESS141/PuTTY/).
 
-While following the second link's instructions, use `login1.ascent.olcf.ornl.gov` hostname instead of "ocean.stanford.edu" and use your own username instead of "gp235". 
+While following the second link's instructions, use `login1.summit.olcf.ornl.gov` hostname instead of "ocean.stanford.edu" and use your own username instead of "gp235". 
 
 **Launching Vampir**
 Once you have the necessary software and are logged in with X forwarding, you can load the Vampir module to your environment:
@@ -409,7 +409,7 @@ This should open a Vampir window that looks like this:
 </center>
 <br>
 
-To open the `otf2` file we created, click on "Local File" on the left (if the window shows a Recent Files page, just click "Open Other"). Then enter in the path to the file, in this case it would be `/gpfs/wolf/<project>/scratch/<username>/Score-P_and_Vampir_Basics/<2nd scorep directory>/traces.otf2`. 
+To open the `otf2` file we created, click on "Local File" on the left (if the window shows a Recent Files page, just click "Open Other"). Then enter in the path to the file, in this case it would be `/gpfs/alpine/<project>/scratch/<username>/Score-P_and_Vampir_Basics/<2nd scorep directory>/traces.otf2`. 
 <br>
 <center>
 <img src="images/vampir_filesystem_labeled2.png" style="width:70%">
@@ -434,7 +434,7 @@ Feel free to play around with all the displays available. Try zooming in on the 
 </center>
 will open the process summary, which will show the call stack of functions in one process (you can change which process by right-clicking and selecting "Set Process". Also, if you want to search for a specific function, you can type "Control+F".
 
->NOTE: Launching Vampir on Ascent might act slow since it's working on a login node, so it could take the GUI a few seconds to load after clicking things.
+>NOTE: Launching Vampir on Summit might act slow since it's working on a login node, so it could take the GUI a few seconds to load after clicking things.
 
 Now you have successsfully profiled a program with Score-P as well as opened and used Vampir! 
 
@@ -449,7 +449,7 @@ The MiniWeather app uses CMake to compile and build the code, which requires a d
 Before starting, make sure you are in the right directory:
 
 ```
-$ cd /gpfs/wolf/<project>/scratch/<username>/Score-P_and_Vampir_Basics/miniWeather
+$ cd /gpfs/alpine/<project>/scratch/<username>/Score-P_and_Vampir_Basics/miniWeather
 ``` 
 
 Then go to the `cmake.sh` file to edit it with vim.
@@ -599,7 +599,7 @@ We can see that we are filtering out around 2.6 Megabytes!
 Now assign the filtering file to the `SCOREP_FILTERING_FILE` variable and set the other Score-P environment variables for a tracing measurement:
 
 ```
-$ export SCOREP_FILTERING_FILE=/gpfs/wolf/<project>/scratch/<username>/Score-P_and_Vampir_Basics/miniWeather/<scorep directory>/scorep.filter
+$ export SCOREP_FILTERING_FILE=/gpfs/alpine/<project>/scratch/<username>/Score-P_and_Vampir_Basics/miniWeather/<scorep directory>/scorep.filter
 $ export SCOREP_TOTAL_MEMORY=6MB
 $ export SCOREP_ENABLE_PROFILING=false
 $ export SCOREP_ENABLE_TRACING=true
@@ -621,10 +621,10 @@ $ mv <scorep directory #2> MPI-scorep
 
 Now that we have the profiling and tracing results with just MPI, we can do the same thing with OpenMP. You can follow the same exact steps above in order to profile and trace the OpenMP version, except you will need to submit the `submit_openmp.lsf` file when submitting a job, and the `SCOREP_TOTAL_MEMORY` variable for the tracing run should be set to 93MB instead of 6MB. You don't need to rebuild the cmake files or compile with `make` again since you already have the `openmp` executable. Just start with the step for setting the Score-P environment variables for a profiling run and continue until you have both Score-P directories for OpenMP.
 
-With the two trace files we just made (MPI and MPI_OpenMP), we can now use Vampir to compare them side by side. First, you will need to sign out of Ascent and sign back in with X forwarding:
+With the two trace files we just made (MPI and MPI_OpenMP), we can now use Vampir to compare them side by side. First, you will need to sign out of Summit and sign back in with X forwarding:
 
 ```
-$ ssh -X <username>@login1.ascent.olcf.ornl.gov
+$ ssh -X <username>@login1.summit.olcf.ornl.gov
 ```
 
 Enter in your password, then load and launch Vampir:
@@ -639,7 +639,7 @@ Run the Vampir GUI remotely via X-forwarding
 $ vampir &
 ```
 
-If Vampir opens up to a Recent Files page, click "Open Other". Then click the "Comparison Session" option, and then the green plus sign (shown below) to add files. Now select the "Local File" option and enter in the path to the MPI trace file or click through the file system to where the `trace.otf2` file is located. The path for the MPI trace file will be: `/gpfs/wolf/<roject>/scratch/<username>/Score-P_and_Vampir_Basics/miniWeather/MPI-scorep/<2nd scorep directory>/traces.otf2`. Then you can do the same thing with the OpenMP trace file (the path will be the same except that it will be in the `OpenMP-scorep` directory instead of `MPI-scorep`). If you need help figuring out the path to your trace file, use the `pwd` command in Ascent. 
+If Vampir opens up to a Recent Files page, click "Open Other". Then click the "Comparison Session" option, and then the green plus sign (shown below) to add files. Now select the "Local File" option and enter in the path to the MPI trace file or click through the file system to where the `trace.otf2` file is located. The path for the MPI trace file will be: `/gpfs/alpine/<roject>/scratch/<username>/Score-P_and_Vampir_Basics/miniWeather/MPI-scorep/<2nd scorep directory>/traces.otf2`. Then you can do the same thing with the OpenMP trace file (the path will be the same except that it will be in the `OpenMP-scorep` directory instead of `MPI-scorep`). If you need help figuring out the path to your trace file, use the `pwd` command in Summit. 
 <br>
 <center>
 <img src="images/vampir_comparison_windows.png" style="width:100%">
@@ -699,7 +699,7 @@ Score-P can also profile programs that utilize GPU programming, specifically wit
 To use Score-P with CUDA code, there are just a few additional steps that need to be taken. To follow along, go to the `gpu-program-examples/redundant_MM` directory, which contains code that uses CUDA programming to multiply matrices:
 
 ```
-$ cd /gpfs/wolf/<project>/scratch/<username>/Score-P_and_Vampir_Basics/gpu-program-examples/redundant_MM
+$ cd /gpfs/alpine/<project>/scratch/<username>/Score-P_and_Vampir_Basics/gpu-program-examples/redundant_MM
 ```
 
 You will also need the following modules:
@@ -732,7 +732,7 @@ For more information on Score-P with CUDA, you can visit these sites: [VI_HPS sl
 The steps for using Score-P with OpenACC are very similar to the ones with CUDA. You can follow along with the OpenACC version of MiniWeather found in the `gpu-program-examples/miniWeather-openacc` directory:
 
 ```
-$ cd /gpfs/wolf/<project>/scratch/<username>/Score-P_and_Vampir_Basics/gpu-program-examples/miniWeather-openacc
+$ cd /gpfs/alpine/<project>/scratch/<username>/Score-P_and_Vampir_Basics/gpu-program-examples/miniWeather-openacc
 ```
 
 Make sure to load the `scorep`, `otf2`, and `cubew` modules either in the `cmake.sh` file or in the command line. The rest of the modules needed are already in `cmake.sh`. 

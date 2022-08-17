@@ -3,13 +3,13 @@
 Please follow the instructions below to login to OLCF's Summit compute system and grab a copy of the code we'll be using.
 
 
-## Step 1: Use the username and password that you setup for Ascent to login. 
+## Step 1: Use the username and password that you setup for Summit to login. 
 
 ```
 ssh <username>@summit.olcf.ornl.gov
 ```
 
-Once you have successfully logged in to Ascent, you can move on to Step 2.
+Once you have successfully logged in to Summit, you can move on to Step 2.
 
 ## Step 2: Clone GitHub Repository for this Event
 
