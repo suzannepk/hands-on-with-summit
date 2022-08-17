@@ -28,12 +28,12 @@ on MacOS.
 Here is an example of a command line prompt:
 
 ```
-[76a@login1.summit ~]$
+[subil@login1.summit ~]$
 ```
 
 The prompt here is the "$". Your commands will be typed after it. 
 
-The system in this example has been set up so the user's userID and the name of the login
+The system in this example has been set up so the user's user ID and the name of the login
 node and system are displayed in brackets before the prompt.  Not all systems will have
 this feature. Some will just start with the "$".
 
@@ -41,8 +41,8 @@ As an example, type in the command `whoami` into the command line and press Ente
 will print out your username like so:
 
 ```
-[76a@login1.summit ~]$ whoami
-76a
+[subil@login1.summit ~]$ whoami
+subil
 ```
 
 
@@ -55,13 +55,13 @@ from the directory you are currently in. You can find out what directory you are
 in with the `pwd` command. `pwd` will give you your 'present working directory'. 
 
 ```
-[76a@login1.summit ~]$ pwd
-/ccsopen/home/76a
+[subil@login1.summit ~]$ pwd
+/ccs/home/subil
 ```
 
-This tells you that you are in the `/ccsopen/home/<user>` directory where you should
+This tells you that you are in the `/ccs/home/<user>` directory where you should
 replace `<user>` with your username. This directory is where you will land by default when
-you first log in on the terminal. The string with forward slashes like e.g. `/ccsopen/home/76a`
+you first log in on the terminal. The string with forward slashes like e.g. `/ccs/home/subil`
 is a called a _path_. If you are not already in this directory, you can use the `cd`
 command to navigate here as we will see next.
 
@@ -69,15 +69,15 @@ command to navigate here as we will see next.
 Let's now try to move around in the filesystem. To move to a different directory we will
 need to use the `cd` command to 'change directory'. On the command line, you have to type
 in `cd` followed by the _path_ of the directory you want to go to. If earlier, `pwd` didn't show that
-you were in your `/ccsopen/home/<user>` directory, we can use `cd` followed by the path to get there.
+you were in your `/ccs/home/<user>` directory, we can use `cd` followed by the path to get there.
 
 ```
-[76a@login1.summit ~]$ cd /ccsopen/home/76a
-[76a@login1.summit ~]$ pwd
-/ccsopen/home/76a
+[subil@login1.summit ~]$ cd /ccs/home/subil
+[subil@login1.summit ~]$ pwd
+/ccs/home/subil
 ```
 
-Make sure you replace `76a` with your actual username. We are just using `76a` as an example.
+Make sure you replace `subil` with your actual username. We are just using `subil` as an example.
 
 
 > By this point, if you haven't already done it, execute `git clone
@@ -86,7 +86,7 @@ Make sure you replace `76a` with your actual username. We are just using `76a` a
 > On With Summit repository. The output should look something like:
 > 
 > ```
-> [76a@login1.summit ~]$ git clone https://github.com/olcf/hands-on-with-summit/
+> [subil@login1.summit ~]$ git clone https://github.com/olcf/hands-on-with-summit/
 > Cloning into 'hands-on-with-summit'...
 > remote: Enumerating objects: 1486, done.
 > remote: Counting objects: 100% (445/445), done.
@@ -102,7 +102,7 @@ the `ls` command which will 'list' your current directory's contents. Your outpu
 is your time on these systems will look something like this
 
 ```
-[76a@login1.summit ~]$ ls
+[subil@login1.summit ~]$ ls
 hands-on-with-summit
 ```
 
@@ -110,15 +110,15 @@ From here, let us try using `cd` to get to the `Basic_Unix_Vim` challenge direct
 `hands-on-with-summit` repository we downloaded.
 
 ```
-[76a@login1.summit ~]$ cd hands-on-with-summit/challenges/Basic_Unix_Vim
+[subil@login1.summit ~]$ cd hands-on-with-summit/challenges/Basic_Unix_Vim
 ```
 
 This is the path _relative to your current directory_ (which would be
-`/ccsopen/home/<user>`). You can also use the _absolute path_ with `cd` i.e. the path string
+`/ccs/home/<user>`). You can also use the _absolute path_ with `cd` i.e. the path string
 starting with `/` is called a absolute path. This will take you to the same directory.
 
 ```
-[76a@login1.summit ~]$ cd /ccsopen/home/<user>/hands-on-with-summit/challenges/Basic_Unix_Vim
+[subil@login1.summit ~]$ cd /ccs/home/<user>/hands-on-with-summit/challenges/Basic_Unix_Vim
 ```
 
 
@@ -126,20 +126,20 @@ Execute `pwd` to check if you're in the right place, and execute `ls` to see wha
 available in this directory. 
 
 ```
-[76a@login1.summit Basic_Unix_Vim]$ pwd 
-/ccsopen/home/<user>/hands-on-with-summit/challenges/Basic_Unix_Vim
-[76a@login1.summit Basic_Unix_Vim]$ ls
+[subil@login1.summit Basic_Unix_Vim]$ pwd 
+/ccs/home/<user>/hands-on-with-summit/challenges/Basic_Unix_Vim
+[subil@login1.summit Basic_Unix_Vim]$ ls
 images README.md text_file.txt
 ```
 
 If you want to go back to where you were,
 remember the previous path you had and use `cd` to navigate there e.g. `cd
-/ccsopen/home/<user>` . 
+/ccs/home/<user>` . 
 
 ```
-[76a@login1.summit Basic_Unix_Vim]$ cd /ccsopen/home/76a
-[76a@login1.summit ~]$ pwd
-/ccsopen/home/76a
+[subil@login1.summit Basic_Unix_Vim]$ cd /ccs/home/subil
+[subil@login1.summit ~]$ pwd
+/ccs/home/subil
 ```
 
 Let us now learn how to create a new directory. Now that you are in the `Basic_Unix_Vim`
@@ -147,8 +147,8 @@ directory, create a new directory by executing the `mkdir` command followed by t
 the directory. For example, to create a directory named 'mydirectory', do the following:
 
 ```
-[76a@login1.summit Basic_Unix_Vim]$ mkdir mydirectory 
-[76a@login1.summit Basic_Unix_Vim]$ ls
+[subil@login1.summit Basic_Unix_Vim]$ mkdir mydirectory 
+[subil@login1.summit Basic_Unix_Vim]$ ls
 images mydirectory README.md text_file.txt
 ```
 
@@ -159,21 +159,21 @@ file needs to be copied to. Let us try to copy the file `text_file.txt` to the n
 created `mydirectory` directory. To do that, we can do the following on the command line
 
 ```
-[76a@login1.summit Basic_Unix_Vim]$ cp test_file.txt mydirectory
+[subil@login1.summit Basic_Unix_Vim]$ cp test_file.txt mydirectory
 ```
 
 Remember that specifying the full path for the file or directory will also work. In this
 case, we could write the below
 
 ```
-[76a@login1.summit Basic_Unix_Vim]$ cp /ccsopen/home/<user>/hands-on-with-summit/challenges/Basic_Unix_Vim/text_file.txt /ccsopen/home/<user>/hands-on-with-summit/challenges/Basic_Unix_Vim/mydirectory
+[subil@login1.summit Basic_Unix_Vim]$ cp /ccs/home/<user>/hands-on-with-summit/challenges/Basic_Unix_Vim/text_file.txt /ccs/home/<user>/hands-on-with-summit/challenges/Basic_Unix_Vim/mydirectory
 ```
 
 You can check the contents of a directory with `ls` without first using `cd` to go to that
 directory, by using `ls` followed by the path or directory name.
 
 ```
-[76a@login1.summit Basic_Unix_Vim]$ ls mydirectory
+[subil@login1.summit Basic_Unix_Vim]$ ls mydirectory
 text_file.txt
 ```
 
@@ -186,11 +186,11 @@ standard text editor available on almost all systems where you have to use a com
 line. It provides the quickest way to view and modify files when you don't have access to
 graphical text editors that you might be used to.
 
-You should be familiar with the format by now. To open a file in Vim, execute the `vim`
+You should be familiar with the command format by now. To open a file in Vim, execute the `vim`
 command with the name of the file. Try to open the file `text_file.txt` with Vim.
 
 ```
-[76a@login1.summit Basic_Unix_Vim]$ vim text_file.txt
+[subil@login1.summit Basic_Unix_Vim]$ vim text_file.txt
 ```
 
 This will open a window that looks like this:
