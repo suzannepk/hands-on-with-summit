@@ -1,12 +1,12 @@
-# Access Ascent and Clone Repository
+# Access Summit and Clone Repository
 
-Please follow the instructions below to login to OLCF's Ascent compute system and grab a copy of the code we'll be using.
+Please follow the instructions below to login to OLCF's Summit compute system and grab a copy of the code we'll be using.
 
 
 ## Step 1: Use the username and password that you setup for Ascent to login. 
 
 ```
-ssh <username>@login1.ascent.olcf.ornl.gov
+ssh <username>@summit.olcf.ornl.gov
 ```
 
 Once you have successfully logged in to Ascent, you can move on to Step 2.
@@ -20,7 +20,7 @@ GitHub is a code-hosting platform for version control and collaboration. It lets
 In order to continue with the other challenges, you will need to `clone` a copy of our repository. To do so, make sure you're in your "home" directory and clone the repo with the following commands:
 
 ```
-$ cd /ccsopen/home/username
+$ cd /ccs/home/<username>
 $ git clone https://github.com/olcf/hands-on-with-summit.git
 ```
 Now you can list the files in your current directory to see the repository directory: 
