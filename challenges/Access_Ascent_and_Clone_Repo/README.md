@@ -21,13 +21,13 @@ In order to continue with the other challenges, you will need to `clone` a copy 
 
 ```
 $ cd /ccs/home/<username>
-$ git clone https://github.com/suzannepk/hands-on-with-summit-Tapia.git
+$ git clone https://github.com/suzannepk/hands-on-with-summit.git
 ```
 Now you can list the files in your current directory to see the repository directory: 
 
 ```
 $ ls
-hands-on-with-summit-Tapia
+hands-on-with-summit
 ```
 
 > NOTE: `git` itself is different than GitHub. It is a tool that developers install locally to manage version control and interact with remote code-hosting sites like GitHub.
@@ -35,7 +35,7 @@ hands-on-with-summit-Tapia
 Now move into that directory:
 
 ```
-$ cd hands-on-with-summit-Tapia
+$ cd hands-on-with-summit
 ```
 
 Congratulations! You've completed your first challenge and can now move on to other [challenges](../). Feel free to jump around to the ones you find most interesting.
