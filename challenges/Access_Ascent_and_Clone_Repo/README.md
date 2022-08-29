@@ -21,7 +21,7 @@ In order to continue with the other challenges, you will need to `clone` a copy 
 
 ```
 $ cd /ccs/home/<username>
-$ git clone https://github.com/olcf/hands-on-with-summit.git
+$ git clone https://github.com/suzannepk/hands-on-with-summit-Tapia.git
 ```
 Now you can list the files in your current directory to see the repository directory: 
 
