@@ -14,18 +14,18 @@ Most operations provide an immediate speed-up out of the box, and some operation
     <img width="50%" src="images/cupy_chart.png">
 </p>
 
-Because each Ascent compute node has 6 NVIDIA V100 GPUs, we will be able to take full advantage of CuPy's capabilities on the system, providing significant speedups over NumPy-written code.
+Because each Summit compute node has 6 NVIDIA V100 GPUs, we will be able to take full advantage of CuPy's capabilities on the system, providing significant speedups over NumPy-written code.
 
 In this challenge, you will:
 
 * Learn how to install CuPy into a custom conda environment
 * Learn the basics of CuPy
 * Apply what you've learned in a debugging challenge
-* Compare speeds to NumPy on Ascent (bonus)
+* Compare speeds to NumPy on Summit (bonus)
 
 ## Installing CuPy
 
-First, we will unload all the current modules that you may have previously loaded on Ascent and then immediately load the default modules.
+First, we will unload all the current modules that you may have previously loaded on Summit and then immediately load the default modules.
 Assuming you cloned the repository in your home directory:
 
 ```
@@ -49,11 +49,11 @@ $ module load python
 Loading the python module puts us in a "base" conda environment, but we need to create a new environment using the `conda create` command:
 
 ```
-$ conda create -p /ccsopen/home/<YOUR_USER_ID>/.conda/envs/cupy-ascent python=3.9
+$ conda create -p /ccs/home/<YOUR_USER_ID>/.conda/envs/cupy-summit python=3.9
 ```
 
 > NOTE: As noted in [Conda Basics](../Python_Conda_Basics), it is highly recommended to create new environments in the "Project Home" directory.
-> However, due to the limited disk quota and potential number of training participants on Ascent, we will be creating our environment in the "User Home" directory.
+> However, due to the limited disk quota and potential number of training participants on Summit, we will be creating our environment in the "User Home" directory.
 
 After following the prompts for creating your new environment, the installation should be successful, and you will see something similar to:
 
@@ -64,17 +64,17 @@ Executing transaction: done
 #
 # To activate this environment, use
 #
-#     $ conda activate /ccsopen/home/<YOUR_USER_ID>/.conda/envs/cupy-ascent
+#     $ conda activate /ccs/home/<YOUR_USER_ID>/.conda/envs/cupy-summit
 #
 # To deactivate an active environment, use
 #
 #     $ conda deactivate
 ```
 
-Due to the specific nature of conda on Ascent, we will be using `source activate` instead of `conda activate` to activate our new environment:
+Due to the specific nature of conda on Summit, we will be using `source activate` instead of `conda activate` to activate our new environment:
 
 ```
-$ source activate /ccsopen/home/<YOUR_USER_ID>/.conda/envs/cupy-ascent
+$ source activate /ccs/home/<YOUR_USER_ID>/.conda/envs/cupy-summit
 ```
 
 The path to the environment should now be displayed in "( )" at the beginning of your terminal lines, which indicates that you are currently using that specific conda environment.
@@ -85,8 +85,8 @@ $ conda env list
 
 # conda environments:
 #
-                      *  /ccsopen/home/<YOUR_USER_ID>/.conda/envs/cupy-ascent
-base                     /sw/ascent/python/3.8/anaconda-base
+                      *  /ccs/home/<YOUR_USER_ID>/.conda/envs/cupy-summit
+base                     /sw/summit/python/3.8/anaconda3/2020.07-rhel8
 ```
 
 CuPy depends on NumPy, so let's install an optimized version of NumPy into our fresh conda environment:
@@ -114,7 +114,7 @@ Eventually you should see output similar to:
 Successfully installed cupy-9.5.0 fastrlock-0.6
 ```
 
-Congratulations, you just installed CuPy on Ascent!
+Congratulations, you just installed CuPy on Summit!
 
 ## Getting Started With CuPy
 
@@ -123,8 +123,8 @@ Congratulations, you just installed CuPy on Ascent!
 
 Before we start testing the CuPy scripts provided in this repository, let's go over some of the basics.
 The developers provide a great introduction to using CuPy in their user guide under the [CuPy Basics](https://docs.cupy.dev/en/stable/user_guide/basic.html) section.
-We will be following this walkthrough on Ascent.
-This is done to illustrate the basics, but participants should **NOT** explicitly follow along (as resources are limited on Ascent and interactive jobs will clog up the queue).
+We will be following this walkthrough on Summit.
+This is done to illustrate the basics, but participants should **NOT** explicitly follow along (as resources are limited on Summit and interactive jobs will clog up the queue).
 The syntax below assumes being in a Python shell with access to 4 GPUs.
 
 As is the standard with NumPy being imported as "np", CuPy is often imported in a similar fashion:
@@ -273,7 +273,7 @@ By default, the compiled code is cached to `$(HOME)/.cupy/kernel_cache` director
 We will change it to our scratch directory:
 
 ```
-$ export CUPY_CACHE_DIR="/gpfs/wolf/scratch/<YOUR_USER_ID>/<YOUR_PROJECT_ID>/.cupy/kernel_cache"
+$ export CUPY_CACHE_DIR="/gpfs/alpine/scratch/<YOUR_USER_ID>/<YOUR_PROJECT_ID>/.cupy/kernel_cache"
 ```
 
 Now, it's time to dive into `data_transfer.py`:
@@ -360,7 +360,7 @@ If you got the script to successfully run, then congratulations!
 ## Bonus: NumPy Speed Comparison
 
 Now that you know how to use CuPy, that brings us to seeing the actual benefits that CuPy provides for large datasets.
-More specifically, let's see how much faster CuPy can be than NumPy on Ascent.
+More specifically, let's see how much faster CuPy can be than NumPy on Summit.
 You won't need to fix any errors; this is mainly a demonstration on what CuPy is capable of.
 
 There are a few things to consider when running on GPUs, which also apply to using CuPy:

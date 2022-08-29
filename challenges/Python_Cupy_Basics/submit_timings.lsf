@@ -13,7 +13,7 @@ module load gcc/7.5.0
 module load cuda/11.0.2
 module load python
 
-source activate $HOME/.conda/envs/cupy-ascent
+source activate $HOME/.conda/envs/cupy-summit
 export CUPY_CACHE_DIR="${MEMBERWORK}/trn010/.cupy/kernel_cache"
 
 jsrun -n1 -g1 python3 timings.py

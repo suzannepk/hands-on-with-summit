@@ -10,11 +10,11 @@ The versatility of conda allows a user to essentially build their own isolated P
 Conda is available on OLCF systems, and loading the default python module loads an Anaconda Python distribution.
 Loading this distribution automatically puts you in a "base" conda environment, which already includes packages that one can use for simulation, analysis, and machine learning.
 
-This hands-on challenge will introduce a user to the basic workflow of using conda environments, as well as providing an example of how to create a conda environment that uses a different version of Python than the base environment uses on Ascent.
+This hands-on challenge will introduce a user to the basic workflow of using conda environments, as well as providing an example of how to create a conda environment that uses a different version of Python than the base environment uses on Summit.
 
 ## Inspecting and setting up the environment
 
-First, we will unload all the current modules that you may have previously loaded on Ascent and then immediately load the default modules.
+First, we will unload all the current modules that you may have previously loaded on Summit and then immediately load the default modules.
 Assuming you cloned the repository in your home directory:
 
 ```
@@ -27,7 +27,7 @@ $ module load DefApps
 The `source deactivate_envs.sh` command is only necessary if you already have the Python module loaded.
 The script unloads all of your previously activated conda environments, and no harm will come from executing the script if that does not apply to you.
 
-Next, we need to load the python module and the gnu compiler module on Ascent (most Python packages assume use of GCC)
+Next, we need to load the python module and the gnu compiler module on Summit (most Python packages assume use of GCC)
 
 ```
 $ module load gcc
@@ -42,7 +42,7 @@ $ conda env list
 
 # conda environments:
 #
-base                  *  /sw/ascent/python/3.8/anaconda-base
+base                  *  /sw/summit/python/3.8/anaconda3/2020.07-rhel8
 ```
 
 This also is a great way to keep track of the locations and names of all other environments that have been created.
@@ -53,7 +53,7 @@ To see what packages are installed in the active environment, use `conda list`:
 ```
 $ conda list
 
-# packages in environment at /sw/ascent/python/3.8/anaconda-base:
+# packages in environment at /sw/summit/python/3.8/anaconda-base:
 #
 # Name                    Version                   Build  Channel
 _ipyw_jlab_nb_ext_conf    0.1.0                    py36_0
@@ -75,7 +75,7 @@ We can find the version of Python that exists in this base environment by execut
 ```
 $ python --version
 
-Python 3.8.12
+Python 3.8.3
 ```
 
 ## Creating a new environment
@@ -85,7 +85,7 @@ For this challenge, we are going to install a newer version of Python.
 To do so, we will create a new environment using the `conda create` command:
 
 ```
-$ conda create -p /ccsopen/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/ascent/py3711-ascent python=3.7.11
+$ conda create -p /ccs/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/summit/py3711-summit python=3.7.11
 ```
 
 The "-p" flag specifies the desired path and name of your new virtual environment.
@@ -93,7 +93,7 @@ The directory structure is case sensitive, so be sure to insert "<YOUR_PROJECT_I
 Directories will be created if they do not exist already (provided you have write-access in that location).
 Instead, one can solely use the `--name <your_env_name>` flag which will automatically use your `$HOME` directory.
 
-> NOTE: It is highly recommended to create new environments in the "Project Home" directory (on Ascent, this is `/ccsopen/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>`).
+> NOTE: It is highly recommended to create new environments in the "Project Home" directory (on Summit, this is `/ccs/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>`).
 > This space avoids purges, allows for potential collaboration within your project, and works better with the compute nodes.
 > It is also recommended, for convenience, that you use environment names that indicate the hostname, as virtual environments created on one system will not necessarily work on others.
 
@@ -107,18 +107,18 @@ Executing transaction: done
 #
 # To activate this environment, use
 #
-#     $ conda activate /ccsopen/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/ascent/py3711-ascent
+#     $ conda activate /ccs/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/summit/py3711-summit
 #
 # To deactivate an active environment, use
 #
 #     $ conda deactivate
 ```
 
-Due to the specific nature of conda on Ascent, we will be using `source activate` and `source deactivate` instead of `conda activate` and `conda deactivate`.
+Due to the specific nature of conda on Summit, we will be using `source activate` and `source deactivate` instead of `conda activate` and `conda deactivate`.
 Let's activate our new environment:
 
 ```
-$ source activate /ccsopen/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/ascent/py3711-ascent
+$ source activate /ccs/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/summit/py3711-summit
 ```
 
 The path to the environment should now be displayed in "( )" at the beginning of your terminal lines, which indicate that you are currently using that specific conda environment.
@@ -129,8 +129,8 @@ $ conda env list
 
 # conda environments:
 #
-                      *  /ccsopen/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/ascent/py3711-ascent
-base                     /sw/ascent/python/3.8/anaconda-base
+                      *  /ccs/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/summit/py3711-summit
+base                     /sw/summit/python/3.8/anaconda3/2020.07-rhel8
 ```
 
 ## Installing packages
@@ -200,11 +200,11 @@ Congratulations, you have just created your own Python environment and ran on on
     It is not recommended to try to install new packages into the base environment.
     Instead, you can clone the base environment for yourself and install packages into the clone.
     To clone an environment, you must use the `--clone <env_to_clone>` flag when creating a new conda environment.
-    An example for cloning the base environment into your `$HOME` directory on Ascent is provided below:
+    An example for cloning the base environment into your `$HOME` directory on Summit is provided below:
 
     ```
-    $ conda create -p /ccsopen/home/<YOUR_USER_ID>/.conda/envs/baseclone-ascent --clone base
-    $ source activate /ccsopen/home/<YOUR_USER_ID>/.conda/envs/baseclone-ascent
+    $ conda create -p /ccs/home/<YOUR_USER_ID>/.conda/envs/baseclone-summit --clone base
+    $ source activate /ccs/home/<YOUR_USER_ID>/.conda/envs/baseclone-summit
     ```
 
 * Deleting an environment:
@@ -242,15 +242,15 @@ Congratulations, you have just created your own Python environment and ran on on
     ```
     $ conda config --show envs_dirs
     ```
-    On Ascent, the default location is your `$HOME` directory.
-    If you plan to frequently create environments in a different location than the default (such as `/ccsopen/proj/...`), then there is an option to add directories to the `envs_dirs` list.
+    On Summit, the default location is your `$HOME` directory.
+    If you plan to frequently create environments in a different location than the default (such as `/ccs/proj/...`), then there is an option to add directories to the `envs_dirs` list.
     To do so, you must execute:
     ```
-    $ conda config --append envs_dirs /ccsopen/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/ascent
+    $ conda config --append envs_dirs /ccs/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/summit
     ```
     This will create a `.condarc` file in your `$HOME` directory if you do not have one already, which will now contain this new envs_dirs location.
-    This will now enable you to use the `--name env_name` flag when using conda commands for environments stored in that specific directory, instead of having to use the `-p /ccsopen/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/ascent/env_name` flag and specifying the full path to the environment.
-    For example, you can do `source activate py3711-ascent` instead of `source activate /ccsopen/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/ascent/py3711-ascent`.
+    This will now enable you to use the `--name env_name` flag when using conda commands for environments stored in that specific directory, instead of having to use the `-p /ccs/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/summit/env_name` flag and specifying the full path to the environment.
+    For example, you can do `source activate py3711-summit` instead of `source activate /ccs/proj/<YOUR_PROJECT_ID>/<YOUR_USER_ID>/conda_envs/summit/py3711-summit`.
 
 ## Quick-Reference Commands
 

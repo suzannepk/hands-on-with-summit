@@ -2,9 +2,9 @@
 
 # Challenges
 
-Each challenge is a stand-alone, self-guided tutorial that includes a `README.md` file to walk you through the content. The first challenge is to complete [Access_Ascent_and_Clone_Repo](Access_Ascent_and_Clone_Repo), which will show you how to clone this repository on Ascent. While it is *not actually necessary* to complete the remaining challenges in any particular order, we recommend participants follow the path below:
+Each challenge is a stand-alone, self-guided tutorial that includes a `README.md` file to walk you through the content. The first challenge is to complete [Access_Summit_and_Clone_Repo](Access_Summit_and_Clone_Repo), which will show you how to clone this repository on Summit. While it is *not actually necessary* to complete the remaining challenges in any particular order, we recommend participants follow the path below:
 
-1. [Access_Ascent_and_Clone_Repo](Access_Ascent_and_Clone_Repo) <img src="../images/easy_badge.png" width="80">
+1. [Access_Summit_and_Clone_Repo](Access_Summit_and_Clone_Repo) <img src="../images/easy_badge.png" width="80">
 2. [Basic_Workflow](Basic_Workflow) <img src="../images/easy_badge.png" width="80">
 3. [OpenMP_Basics](OpenMP_Basics) <img src="../images/easy_badge.png" width="80">
 4. [MPI_Basics](MPI_Basics) <img src="../images/easy_badge.png" width="80">

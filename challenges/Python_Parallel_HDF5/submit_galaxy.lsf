@@ -11,6 +11,6 @@ date
 
 module load python hdf5 gcc
 
-source activate $HOME/.conda/envs/h5pympi-ascent
+source activate $HOME/.conda/envs/h5pympi-summit
 
 jsrun -n1 -r1 -a8 -c8 python3 -u galaxy.py

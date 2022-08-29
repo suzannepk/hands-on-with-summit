@@ -117,7 +117,7 @@ jsrun -n6 -c7 -g1 -a1
 
 > NOTE: In these examples, we're using the `jsrun` wrapper provided by Job Step Viewer, which is why no executable is given in the command.
 
-After running this code with `bsub submit.lsf`, you should find the a unique URL in the output file `testing_jsrun.JOBID`. By following the link, you'll see a diagram representing Ascent's 18 compute nodes. Click the green node (or click the "Nodes Used" dropdown) to see the process placement from your job. The diagram should be very similar to the image above. 
+After running this code with `bsub submit.lsf`, you should find the a unique URL in the output file `testing_jsrun.JOBID`. By following the link, you'll see a diagram representing Summit's 18 compute nodes. Click the green node (or click the "Nodes Used" dropdown) to see the process placement from your job. The diagram should be very similar to the image above. 
 
 > NOTE: The exact hardware thread that a process/thread lands on will vary between runs and is expected, but the physical core should be the same.
 
