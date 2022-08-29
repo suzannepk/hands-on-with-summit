@@ -27,7 +27,7 @@ Now you can list the files in your current directory to see the repository direc
 
 ```
 $ ls
-hands-on-with-summit
+hands-on-with-summit-Tapia
 ```
 
 > NOTE: `git` itself is different than GitHub. It is a tool that developers install locally to manage version control and interact with remote code-hosting sites like GitHub.
@@ -35,7 +35,7 @@ hands-on-with-summit
 Now move into that directory:
 
 ```
-$ cd hands-on-with-summit
+$ cd hands-on-with-summit-Tapia
 ```
 
 Congratulations! You've completed your first challenge and can now move on to other [challenges](../). Feel free to jump around to the ones you find most interesting.
