@@ -11,7 +11,7 @@ Each challenge is a stand-alone, self-guided tutorial that includes a `README.md
 4. [MPI_Basics](MPI_Basics) <img src="../images/easy_badge.png" width="80">
 5. [Find_the_Compiler_Flag](Find_the_Compiler_Flag) <img src="../images/easy_badge.png" width="80">
 6. [GPU_Data_Transfers](GPU_Data_Transfers) <img src="../images/medium_badge.png" width="80">
-0. [Basic_Unix_Vim](Basic_Unix_Vim)<img src="../images/easy_badge.png" width="80">
+0. [Basic_Unix_Vim](Basic_Unix_Vim) <img src="../images/easy_badge.png" width="80">
 
 After completing these challenges, feel free to "choose your own adventure" by completing the rest of the challenges in any order you prefer.
 
