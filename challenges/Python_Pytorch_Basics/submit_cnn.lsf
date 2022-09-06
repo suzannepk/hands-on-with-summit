@@ -6,6 +6,7 @@
 #BSUB -o pytorch_cnn.%J.out
 #BSUB -e pytorch_cnn.%J.err
 #BSUB -alloc_flags smt4 gpumps
+#BSUB -U TAPIA_THU
 
 cd $LSB_OUTDIR
 date
