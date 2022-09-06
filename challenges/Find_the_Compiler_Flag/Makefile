@@ -1,6 +1,8 @@
 CCOMP = pgcc
 CFLAGS = -Minfo=all
 
+all: clean run
+
 run: vector_addition.o
 	$(CCOMP) $(CFLAGS) vector_addition.o -o run
 
