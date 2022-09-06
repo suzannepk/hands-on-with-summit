@@ -7,6 +7,7 @@
 #BSUB -o testing_jsrun.%J
 #BSUB -e testing_jsrun.%J
 #BSUB -alloc_flags "gpumps"
+#BSUB -U TAPIA_THU
 
 module load job-step-viewer
 
