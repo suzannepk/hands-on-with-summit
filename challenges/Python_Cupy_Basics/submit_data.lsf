@@ -5,6 +5,7 @@
 #BSUB -J cupy_xfer
 #BSUB -o cupy_xfer.%J.out
 #BSUB -e cupy_xfer.%J.err
+#BSUB -U TAPIA_THU
 
 cd $LSB_OUTDIR
 date
