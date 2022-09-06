@@ -6,6 +6,7 @@
 #BSUB -J bcast
 #BSUB -o bcast.%J
 #BSUB -e bcast.%J
+#BSUB -U TAPIA_THU
 
 
 jsrun -n 4 -c 1 ./run
