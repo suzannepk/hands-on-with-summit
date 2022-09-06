@@ -6,6 +6,7 @@
 #BSUB -J 01_gpu
 #BSUB -o 01_gpu.%J
 #BSUB -e 01_gpu.%J
+#BSUB -U TAPIA_THU
 
 export OMP_NUM_THREADS=1
 
