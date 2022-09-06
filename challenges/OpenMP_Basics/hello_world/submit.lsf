@@ -3,6 +3,7 @@
 #BSUB -P TRN001
 #BSUB -J hello_test
 #BSUB -o hello_test.%J
+#BSUB -U TAPIA_THU
 #BSUB -nnodes 1
 #BSUB -W 10
 
