@@ -5,6 +5,7 @@
 #BSUB -J cupy_timings
 #BSUB -o cupy_timings.%J.out
 #BSUB -e cupy_timings.%J.err
+#BSUB -U TAPIA_THU
 
 cd $LSB_OUTDIR
 date
