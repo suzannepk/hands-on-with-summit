@@ -5,6 +5,7 @@
 #BSUB -J mpi4py
 #BSUB -o mpi4py.%J.out
 #BSUB -e mpi4py.%J.err
+#BSUB -U TAPIA_THU
 
 cd $LSB_OUTDIR
 date
