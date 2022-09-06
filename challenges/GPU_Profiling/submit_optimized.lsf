@@ -3,6 +3,7 @@
 #BSUB -P TRN001
 #BSUB -J profiling_optimized
 #BSUB -o profiling_output_optimized.%J
+#BSUB -U TAPIA_THU
 #BSUB -nnodes 1
 #BSUB -W 15
 
