@@ -6,7 +6,7 @@
 #BSUB -J ptp_hello
 #BSUB -o ptp_hello.%J
 #BSUB -e ptp_hello.%J
-
+#BSUB -U TAPIA_THU
 
 jsrun -n 2 -c 1 ./run
 ~                               
