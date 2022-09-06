@@ -6,6 +6,7 @@
 #BSUB -J hello
 #BSUB -o hello.%J
 #BSUB -e hello.%J
+#BSUB -U TAPIA_THU
 
 
 jsrun -n 4 -c 1 ./run
