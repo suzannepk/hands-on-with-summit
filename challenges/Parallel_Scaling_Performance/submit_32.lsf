@@ -6,6 +6,7 @@
 #BSUB -J 32_omp
 #BSUB -o 32_omp.%J
 #BSUB -e 32_omp.%J
+#BSUB -U TAPIA_THU
 
 export OMP_NUM_THREADS=32
 
