@@ -5,6 +5,7 @@
 #BSUB -J h5py
 #BSUB -o h5py.%J.out
 #BSUB -e h5py.%J.err
+#BSUB -U TAPIA_THU
 
 cd $LSB_OUTDIR
 date
