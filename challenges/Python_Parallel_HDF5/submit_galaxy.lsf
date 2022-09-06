@@ -5,6 +5,7 @@
 #BSUB -J galaxy
 #BSUB -o galaxy.%J.out
 #BSUB -e galaxy.%J.err
+#BSUB -U TAPIA_THU
 
 cd $LSB_OUTDIR
 date
