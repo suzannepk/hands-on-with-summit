@@ -4,13 +4,14 @@
 
 Each challenge is a stand-alone, self-guided tutorial that includes a `README.md` file to walk you through the content. The first challenge is to complete [Access_Summit_and_Clone_Repo](Access_Summit_and_Clone_Repo), which will show you how to clone this repository on Summit. While it is *not actually necessary* to complete the remaining challenges in any particular order, we recommend participants follow the path below:
 
+
 1. [Access_Summit_and_Clone_Repo](Access_Summit_and_Clone_Repo) <img src="../images/easy_badge.png" width="80">
 2. [Basic_Workflow](Basic_Workflow) <img src="../images/easy_badge.png" width="80">
 3. [OpenMP_Basics](OpenMP_Basics) <img src="../images/easy_badge.png" width="80">
 4. [MPI_Basics](MPI_Basics) <img src="../images/easy_badge.png" width="80">
 5. [Find_the_Compiler_Flag](Find_the_Compiler_Flag) <img src="../images/easy_badge.png" width="80">
 6. [GPU_Data_Transfers](GPU_Data_Transfers) <img src="../images/medium_badge.png" width="80">
-
+0. [Basic_Unix_Vim](Basic_Unix_Vim)
 After completing these challenges, feel free to "choose your own adventure" by completing the rest of the challenges in any order you prefer.
 
 - [Password_in_a_Haystack](Password_in_a_Haystack) <img src="../images/easy_badge.png" width="80">
