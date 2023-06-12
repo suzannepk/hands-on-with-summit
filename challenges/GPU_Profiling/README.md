@@ -16,7 +16,9 @@ reduction](https://developer.download.nvidia.com/assets/cuda/files/reduction.pdf
 each row, using one threadblock per row (with 256 threads per block). The `column_sums`
 kernel remains the same.
 
-## Step 1: Compile the unoptimized code
+&nbsp;
+
+## Compile the unoptimized code
 
 First, you'll need to make sure your programming environment is set up correctly for
 compiling the code. You need to make sure the ROCm profiling tools are present in the environment. This can be accomplished by loading the modules below.
@@ -27,17 +29,19 @@ $ module load PrgEnv-amd
 
 Then you compile the `matrix_sums_unoptimized.cpp` code with
 
-```
+```bash
 $ make unoptimized
 ```
 
 This will create a binary called `matrix_sums_unoptimized` in the directory.
 
-## Step 2: Run the program
+&nbsp;
+
+## Run the program
 
 Once you've succesfully compiled, submit the batch script.
 
-```
+```bash
 $ sbatch submit_unoptimized.sbatch
 ```
 
@@ -54,8 +58,9 @@ explanation of what that is and why it's important.
 Also, look at the Memory Operation Statistics sections. Why does copying data
 from host to device (HIP memcpy HtoD) take longer?
 
+&nbsp;
 
-## Step 3: Compile the optimized code
+## Compile the optimized code
 
 Now we'll profile the code in `matrix_sums_optimized.cpp`. Look at the `row_sums` kernel
 code in `matrix_sums_optimized.cpp` and compare it side-by-side to the code in
@@ -63,17 +68,19 @@ code in `matrix_sums_optimized.cpp` and compare it side-by-side to the code in
 
 Compile the code in `matrix_sums_optimized.cpp` with:
 
-```
+```bash
 $ make optimized
 ```
 
 This will create a binary called `sums_optimized` in the directory.
 
-## Step 4: Profile the optimized code
+&nbsp;
+
+## Profile the optimized code
 
 Once you've successfully compiled, run the batch script:
 
-```
+```bash
 $ sbatch submit_optimized.sbatch
 ```
 
@@ -87,6 +94,7 @@ code. The [OLCF CUDA training series](https://www.olcf.ornl.gov/cuda-training-se
 an excellent resource if you want to learn more about how and why this works. You can find
 slides, recordings, and homework problems to help you learn CUDA programming and optimizing.
 
+&nbsp;
 
 # Further information
 

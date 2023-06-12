@@ -1,60 +1,73 @@
 # What is MPI? 
 
-The **M**essage **P**assing **I**nterface (MPI) is a set of library functions, methods, and specifications that can be called to distribute a code's processing work between nodes or processors on the same node.  It does this by passing messages between the processors. It is governed by a set of community driven standards. The MPI standard can be found here: [MPI: A Message-Passing Interface Standard Version 3.1]( https://www.mpi-forum.org/docs/mpi-3.1/mpi31-report.pdf). 
+The **M**essage **P**assing **I**nterface (MPI) is a set of library functions, methods, and specifications that can be called to distribute a code's processing work between nodes or processors on the same node.  It does this by passing messages between the processors. It is governed by a set of community driven standards. 
 
-The basic flow of MPI within in a program is:
+The MPI standard can be found here: [MPI: A Message-Passing Interface Standard Version 3.1]( https://www.mpi-forum.org/docs/mpi-3.1/mpi31-report.pdf). 
+
+MPI is very simple. A parallel program can be written using as little as six functions!
+
+```C
+MPI_INIT        # Setup
+MPI_FINALIZE    # Teardown
+```
+```C
+MPI_COMM_SIZE   # How many processes?
+MPI_COMM_RANK   # What process am I?
+```
+```C
+MPI_SEND        # Send a message
+MPI_RECV        # Receive the message
+```
+
+The basic workflow is as follows:
 1. Initialize communication 
 2. Communicate between processes to share data
 3. Exit the communication
 
-
-This neat encapsulation of data and instructions in portable messages allows different processes to run on nodes that have different pools of memory. Each process has its own unique copy of the data, variables, and instructions for its task. 
-
-MPI also works well on nodes where processing elements share memory, but other parallel methods designed for shared memory may be more efficient in that situation. MPI is often used in conjunction with OpenMP and other shared-memory threading methods.  For example, you might use MPI to pass work between compute nodes and then use OpenMP threads to divide work among the different processing elements on the node. 
-
-This challenge will explore an MPI helloworld and two kinds of MPI communication patterns. We will use C code and pass its work with MPI between CPU cores on the same node so that we have enough nodes available for everyone to do this at once.
-
-
-
-# MPI Terminology  
- 
-**Communicator**   An object that represents a group of processes than can communicate with each other. 
-
-**Rank** Within a communicator each process is given a unique integer ID. Ranks start at 0 and are incremented contiguously. Ranks can be mapped to hardware processing elements like CPU cores. 
-
-**Size** The total number of ranks in a communicator.
-
-**MPI Region** The part of the code that will be executed in parallel using one MPI communicator. It will always be sandwiched between  MPI_Init and 
-MPI_Finalize function calls.
-
-
 <br>
 <center>
 <img src="images/MPI_burger.png" width="220" height="200">
+<br><b>The Communication Sandwich</b></br>
 </center>
 <br>
 
-**The Communication Sandwich**                                  
+
+
+&nbsp;
+
+## Things to know about MPI
+
+MPI's encapsulation of data and instructions in portable messages allows different processes to run on nodes that have different pools of memory. 
+
+Each process has its own unique copy of the data, variables, and instructions for its task. That means that the programmer is responsible for moving the data around via communicators. 
+
+Communicators are MPI specific datatypes that hold various bits of information such as size and rank. 
+
+>> ---
+>  **Communicator**  - An object that represents a group of processes than can communicate with each other.   
+> **Rank** - Within a communicator each process is given a unique integer ID. Ranks start at 0 and are incremented contiguously. Ranks can be mapped to hardware processing elements like CPU cores.   
+> **Size**  - The total number of ranks in a communicator.  
+>>---
 
 
 
 
-For a typical MPI program, the number of ranks is set by the programmer in the command used to run the program. This allows the programmer to try differnt numbers of processes per task without needing to change the code. 
 
-The first thing MPI does when it is initialized, is set up the communicator. You can think of a communicator as a package that holds all the needed organizational information for its MPI region in the code. Inside the communicator each process is given a rank. The size of the communicator is equal to its total number of ranks. 
 
-All MPI function calls within the same MPI region will get each process’s rank from the communicator. The programmer must use logic, based on the MPI rank's ID to differentiate the code paths. 
 
 <br>
 <center>
 <img src="images/comm.png" width="500" height="500">
+<br><b>A communicator of size 8, with 8 ranks that map to 8 processes running on 8 CPU cores.</b></br>
 </center>
 <br>
 
 
-**A communicator of size 8, with 8 ranks that map to 8 processes running on 8 CPU cores.** 
 
-# MPI Functions and Helloworld
+
+## MPI Functions and Helloworld
+
+This challenge will explore an MPI helloworld and two kinds of MPI communication patterns. We will use C code and pass its work with MPI between CPU cores on the same node so that we have enough nodes available for everyone to do this at once.
 
 MPI consists of hundreds of functions, but most users will only use a handful of them. 
 We'll start by looking at the functions needed for an MPI Helloworld program. 
